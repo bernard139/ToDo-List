@@ -1,0 +1,97 @@
+@model IEnumerable<ToDo__List.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Create and Manage your Tasks</h1>
+
+<p>
+    <a asp-action="Create" style="text-decoration:none"><button class="btn btn-primary">Create New</button></a>
+</p>
+<table class="table">
+    <thead hidden>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tasks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" id="completedCheckbox_@item.ID" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categories)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tasks)
+                </td>
+                <td>
+                    <span id="status-@item.ID"></span>
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+
+                <td typeof="submit">
+                    <a asp-action="Edit" asp-route-id="@item.ID"><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i>Edit</button></a>
+                    @*<a asp-action="Details" asp-route-id="@item.ID">Details</a>*@
+                    <a asp-action="Delete" asp-route-id="@item.ID"><button class="btn btn-danger"><i class="bi bi-trash3"></i>Delete</button></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function calculateRemainingDays(endDate, elementId) {
+                var today = new Date();
+                var remainingDays = Math.ceil((endDate - today) / (1000 * 60 * 60 * 24));
+
+                if (remainingDays >= 2) {
+                    $('#' + elementId).text(remainingDays + ' days left');
+                }
+                else if (remainingDays == 0) {
+                    $('#' + elementId).text('Due Today');
+                }
+                else if (remainingDays == 1) {
+                    $('#' + elementId).text('Due Tomorrow');
+                }
+                else {
+                    $('#' + elementId).text('Expired');
+                }
+            }
+
+            @foreach (var item in Model)
+            {
+                <text>
+                    calculateRemainingDays(new Date('@item.EndDate'), 'status-@item.ID');
+                </text>
+            }
+        });
+    </script>
+}
+
