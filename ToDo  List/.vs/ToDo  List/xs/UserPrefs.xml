@@ -1,4 +1,45 @@
 ﻿<Properties StartupConfiguration="{74CE5373-D44B-43DD-984D-CAC95913C443}|https">
-  <MonoDevelop.Ide.ItemProperties.ToDo--List FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.ToDo--List PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDo--List/Controllers/CategoryController.cs">
+    <Files>
+      <File FileName="ToDo--List/Controllers/CategoryController.cs" Line="70" Column="10" IsPinned="True" />
+      <File FileName="ToDo--List/Controllers/HomeController.cs" Line="16" Column="31" />
+      <File FileName="ToDo--List/Program.cs" />
+      <File FileName="ToDo--List/Views/Shared/_Layout.cshtml" />
+      <File FileName="ToDo--List/Views/Category/Index.cshtml" Line="62" Column="18" />
+      <File FileName="ToDo--List/wwwroot/css/ThemeBootswatch.css" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ToDo  List" expanded="True">
+            <Node name="ToDo--List" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="CategoryController.cs" selected="True" />
+              </Node>
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Category" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
