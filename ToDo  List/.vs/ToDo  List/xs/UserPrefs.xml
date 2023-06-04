@@ -1,30 +1,27 @@
 ﻿<Properties StartupConfiguration="{74CE5373-D44B-43DD-984D-CAC95913C443}|https">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/mac/Desktop/Desktop/Work/Projects/ToDo-List/ToDo  List/ToDo--List/Controllers/AccountController.cs" relfile="ToDo--List/Controllers/AccountController.cs" line="43" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDo--List/Controllers/AccountController.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDo--List/Models/UsernameEmailAttribute.cs">
     <Files>
-      <File FileName="ToDo--List/Controllers/CategoryController.cs" Line="7" Column="37" IsPinned="True" />
-      <File FileName="ToDo--List/Controllers/HomeController.cs" Line="1" Column="1" />
-      <File FileName="ToDo--List/Views/Home/Index.cshtml" Line="14" Column="51" />
-      <File FileName="ToDo--List/Views/Home/Privacy.cshtml" Line="1" Column="1" />
-      <File FileName="ToDo--List/Models/User.cs" Line="15" Column="45" />
-      <File FileName="ToDo--List/Controllers/AccountController.cs" Line="96" Column="14" />
-      <File FileName="ToDo--List/Views/Account/Index.cshtml" Line="1" Column="1" />
-      <File FileName="ToDo--List/Views/Account/Create.cshtml" Line="30" Column="7" />
+      <File FileName="ToDo--List/Controllers/AccountController.cs" Line="79" Column="18" />
+      <File FileName="ToDo--List/Program.cs" Line="30" Column="1" />
+      <File FileName="ToDo--List/Views/Account/LogIn.cshtml" Line="17" Column="76" />
+      <File FileName="ToDo--List/Models/UsernameEmailAttribute.cs" Line="24" Column="10" />
+      <File FileName="ToDo--List/Models/LogIn.cs" Line="17" Column="45" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ToDo  List" expanded="True">
             <Node name="ToDo--List" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="AccountController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
-              <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Account" expanded="True" />
@@ -39,6 +36,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.ToDo--List PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>
