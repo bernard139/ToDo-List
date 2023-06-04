@@ -9,10 +9,12 @@
 <p>
     <a asp-action="Create" style="text-decoration:none"><button class="btn btn-primary">Create New</button></a>
 </p>
-<table class="table">
+<table class="">
     <thead hidden>
         <tr>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Categories)
             </th>
@@ -25,9 +27,6 @@
             @*<th>
                 @Html.DisplayNameFor(model => model.EndDate)
             </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Priority)
-        </th>
             <th></th>
         </tr>
     </thead>
@@ -36,7 +35,18 @@
         {
             <tr>
                 <td>
-                    <input type="checkbox" id="completedCheckbox_@item.ID" />
+                    @if (item.Priority == "High")
+                    {
+                        <span class="priority-radio high"></span>
+                    }
+                    else if (item.Priority == "Mid")
+                    {
+                        <span class="priority-radio mid"></span>
+                    }
+                    else if (item.Priority == "Low")
+                    {
+                        <span class="priority-radio low"></span>
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Categories)
@@ -50,10 +60,9 @@
                 @*<td>
             @Html.DisplayFor(modelItem => item.EndDate)
         </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Priority)
-            </td>
-
+                <td>
+                    <input type="checkbox" id="completedCheckbox_@item.ID" />
+                </td>
                 <td typeof="submit">
                     <a asp-action="Edit" asp-route-id="@item.ID"><button class="btn btn-secondary"><i class="bi bi-pencil-square"></i>Edit</button></a>
                     @*<a asp-action="Details" asp-route-id="@item.ID">Details</a>*@

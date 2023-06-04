@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "T74HH4gDX+c5oWinREA9InB42oanEOHtFwWg+b2HU1I=",
+  "Hash": "KWVBVpDeCTzGVa/q/Xs5tHQ+Yt22JZVR9uB5V4IpbC0=",
   "Source": "ToDo--List",
   "BasePath": "_content/ToDo--List",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
+    },
+    {
+      "Identity": "/Users/mac/Desktop/Desktop/Work/Projects/ToDo-List/ToDo  List/ToDo--List/wwwroot/css/styles.css",
+      "SourceId": "ToDo--List",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/Desktop/Desktop/Work/Projects/ToDo-List/ToDo  List/ToDo--List/wwwroot/",
+      "BasePath": "_content/ToDo--List",
+      "RelativePath": "css/styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/styles.css"
     },
     {
       "Identity": "/Users/mac/Desktop/Desktop/Work/Projects/ToDo-List/ToDo  List/ToDo--List/wwwroot/css/ThemeBootswatch.css",

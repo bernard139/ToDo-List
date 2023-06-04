@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ToDo__List.Data;
 
 namespace ToDo__List;
@@ -14,6 +15,16 @@ public class Program
         builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
             builder.Configuration.GetConnectionString("DefaultConnection")
             ));
+        builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+        {
+            options.Password.RequireNonAlphanumeric = false;
+        }).AddEntityFrameworkStores<ApplicationDbContext>();
+        //builder.Services.ConfigureApplicationCookie(options =>
+        //{
+        //    options.LoginPath = "/Account/LogIn";
+        //});
+
+
         builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
         var app = builder.Build();
 
@@ -27,6 +38,8 @@ public class Program
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
+
+        app.UseAuthentication();
 
         app.UseRouting();
 

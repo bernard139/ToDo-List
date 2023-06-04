@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
+      "Id": "/Users/mac/Desktop/Desktop/Work/Projects/ToDo-List/ToDo  List/ToDo--List/wwwroot/css/styles.css",
+      "PackagePath": "staticwebassets/css/styles.css"
+    },
+    {
       "Id": "/Users/mac/Desktop/Desktop/Work/Projects/ToDo-List/ToDo  List/ToDo--List/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
     },
