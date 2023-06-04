@@ -2,25 +2,25 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/mac/Desktop/Desktop/Work/Projects/ToDo-List/ToDo  List/ToDo--List/Controllers/AccountController.cs" relfile="ToDo--List/Controllers/AccountController.cs" line="43" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ToDo--List/Models/UsernameEmailAttribute.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ToDo--List/Controllers/AccountController.cs">
     <Files>
-      <File FileName="ToDo--List/Controllers/AccountController.cs" Line="79" Column="18" />
-      <File FileName="ToDo--List/Program.cs" Line="30" Column="1" />
-      <File FileName="ToDo--List/Views/Account/LogIn.cshtml" Line="17" Column="76" />
-      <File FileName="ToDo--List/Models/UsernameEmailAttribute.cs" Line="24" Column="10" />
-      <File FileName="ToDo--List/Models/LogIn.cs" Line="17" Column="45" />
+      <File FileName="ToDo--List/Controllers/AccountController.cs" Line="82" Column="18" />
+      <File FileName="ToDo--List/Program.cs" />
+      <File FileName="ToDo--List/Views/Account/LogIn.cshtml" />
+      <File FileName="ToDo--List/Models/UsernameEmailAttribute.cs" Line="33" Column="10" />
+      <File FileName="ToDo--List/Models/LogIn.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ToDo  List" expanded="True">
             <Node name="ToDo--List" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="AccountController.cs" selected="True" />
+              </Node>
               <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
