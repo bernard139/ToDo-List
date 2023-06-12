@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Plugins;
 using ToDo__List.Models;
 
-namespace ToDo__List.Data
+namespace ToDo__List.Migrations
 {
     public class ApplicationDbContext : IdentityDbContext
     {

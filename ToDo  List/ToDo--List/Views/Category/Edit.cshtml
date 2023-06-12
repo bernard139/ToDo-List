@@ -1,7 +1,9 @@
+@using System.Security.Claims;
 @model ToDo__List.Models.Category
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/CategoryLayout.cshtml";
 }
 
 <h1>Edit</h1>
@@ -21,6 +23,11 @@
                 <label asp-for="Tasks" class="control-label"></label>
                 <input asp-for="Tasks" class="form-control" />
                 <span asp-validation-for="Tasks" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
             <div class="form-group" hidden>
                 <label asp-for="Status" class="control-label"></label>
@@ -49,9 +56,9 @@
     </div>
 </div>
 
-<div>
+@*<div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

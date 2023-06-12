@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ToDo__List.Data;
+//using ToDo__List.Data;
 using ToDo__List.Models;
 
 namespace ToDo__List.Controllers
@@ -39,13 +39,13 @@ namespace ToDo__List.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+                var user = new IdentityUser { UserName = model.Username, Email = model.Email };
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Category");
+                    return RedirectToAction("Index", "Category", new { userId = user.Id});
                 }
 
                 foreach (var error in result.Errors)
@@ -86,7 +86,7 @@ namespace ToDo__List.Controllers
 
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Category");
+                        return RedirectToAction("Index", "Category", new { userId = user.Id });
                     }
                 }
 
@@ -95,5 +95,15 @@ namespace ToDo__List.Controllers
             }
             return View(model);
         }
+
+        //LOGOUT
+
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();  // Perform logout logic
+
+            return RedirectToAction("Index", "Home");  // Redirect to Home controller's index action
+        }
+
     }
 }

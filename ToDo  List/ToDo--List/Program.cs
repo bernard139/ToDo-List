@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ToDo__List.Data;
+using ToDo__List.Migrations;
 
 namespace ToDo__List;
 
