@@ -56,11 +56,8 @@
         @foreach (var item in Model)
         {
             <tr class="table-active">
-                @*<td>
-                <input type="checkbox" id="completedCheckbox_@item.ID" />
-                </td>*@
                 <td>
-                    <input type="checkbox" id="completedCheckbox_@item.ID" data-category="@item.Categories" data-task="@item.Tasks" data-status="@item.Status" data-enddate="@item.EndDate" />
+                    <input type="checkbox" id="completedCheckbox_@item.ID" data-category="@item.Categories" data-task="@item.Tasks" data-status="@item.Status" data-priority="@item.Priority" />
                 </td>
 
 
@@ -117,8 +114,8 @@
                     <dd class="col-sm-10" id="taskName"></dd>
                     <dt class="col-sm-2">Status</dt>
                     <dd class="col-sm-10" id="taskStatus"></dd>
-                    <dt class="col-sm-2">End Date</dt>
-                    <dd class="col-sm-10" id="taskEndDate"></dd>
+                    <dt class="col-sm-2">Priority</dt>
+                    <dd class="col-sm-10" id="taskPriority"></dd>
                 </dl>
             </div>
             <div class="modal-footer">
@@ -166,12 +163,13 @@
                 var category = checkbox.data('category');
                 var task = checkbox.data('task');
                 var status = checkbox.data('status');
-                var endDate = checkbox.data('enddate');
+                var priority = checkbox.data('priority');
 
                 $('#taskCategory').text(category);
                 $('#taskName').text(task);
                 $('#taskStatus').text(status);
-                $('#taskEndDate').text(endDate);
+                $('#taskPriority').text(priority
+                );
 
                 $('#confirmButton').click(function () {
                     // Handle the checkbox confirmation logic here

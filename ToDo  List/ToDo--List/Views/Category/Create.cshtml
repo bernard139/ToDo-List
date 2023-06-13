@@ -14,7 +14,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Categories" class="control-label"></label>
-                <input asp-for="Categories" class="form-control" />
+                <select asp-for="Categories" class="form-control" name="Categories">
+                    <option value="">--Select--</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="Home">Home</option>
+                    <option value="School/Study">School/Study</option>
+                    <option value="Health/Fitness">Health/Fitness</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Social">Social</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Projects">Projects</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                </select>
                 <span asp-validation-for="Categories" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -39,7 +51,7 @@
             </div>
             <div class="form-group" hidden>
                 <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" value="Pending" readonly />
+                <input asp-for="Status" class="form-control" id="statusInput" readonly />
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -73,5 +85,32 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            // Event listener for the EndDate input field
+            $('#EndDate').change(function () {
+                // Get the values of the EndDate and current date
+                var endDate = new Date($(this).val());
+                var currentDate = new Date();
+
+                // Calculate the remaining days
+                var remainingDays = Math.ceil((endDate - currentDate) / (1000 * 60 * 60 * 24));
+
+                // Update the status input with the remaining days
+                var statusInput = $('#statusInput');
+                if (remainingDays >= 2) {
+                    statusInput.val(remainingDays + ' days left')
+                } else if (remainingDays == 0) {
+                    statusInput.val('Due Today')
+                } else if (remainingDays == 1) {
+                    statusInput.val('Due Tomorrow')
+                } else {
+                    statusInput.val('Expired')
+                }
+            });
+        });
+    </script>
+
 }
 
