@@ -22,6 +22,8 @@ namespace ToDo__List.Models
 
         // Foreign key for the user who owns the task
         public string UserId { get; set; }
+        //[NotMapped]
+        //public string EncryptedId { get; set; }
 
         public IdentityUser? User { get; set; }
     }

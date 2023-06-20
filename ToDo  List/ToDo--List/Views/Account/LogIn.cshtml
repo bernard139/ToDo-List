@@ -13,12 +13,12 @@
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="UsernameOrEmail" class="control-label">Email</label>
-                <input asp-for="UsernameOrEmail" class="form-control" />
+                <input asp-for="UsernameOrEmail" class="form-control" id="username" autocomplete="off" />
                 <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label">Password</label>
-                <input asp-for="Password" class="form-control" />
+                <input asp-for="Password" class="form-control" id="password" autocomplete="new-password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,3 +35,14 @@
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            // Clear the username and password fields on page load
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+    </script>
+
+}

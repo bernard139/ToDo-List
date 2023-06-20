@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 //using ToDo__List.Data;
 using ToDo__List.Models;
 
@@ -45,7 +39,17 @@ namespace ToDo__List.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Category", new { userId = user.Id});
+
+                    // Generate the salt
+                    string salt = QueryStringHelper.SaltGenerator.GenerateSalt();
+
+                    // Encrypt the user ID using the generated salt value
+                    string encryptedUserId = QueryStringHelper.EncryptQueryStringParameter(user.Id, salt);
+
+                    // Append the encrypted user ID to the return URL
+                    string returnUrl = $"/Category/Index?encryptedUserId={Uri.EscapeDataString(encryptedUserId)}&salt={Uri.EscapeDataString(salt)}";
+
+                    return Redirect(returnUrl);
                 }
 
                 foreach (var error in result.Errors)
@@ -86,8 +90,21 @@ namespace ToDo__List.Controllers
 
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Category", new { userId = user.Id });
+                        // Generate the salt
+                        string salt = QueryStringHelper.SaltGenerator.GenerateSalt();
+
+                        // Encrypt the user ID
+                        string encryptedUserId = QueryStringHelper.EncryptQueryStringParameter(user.Id, salt);
+
+                        // Build the return URL with encrypted user ID and salt
+                        string returnUrl = $"/Category/Index?encryptedUserId={Uri.EscapeDataString(encryptedUserId)}&salt={Uri.EscapeDataString(salt)}";
+
+                        // Redirect to the return URL
+                        return Redirect(returnUrl);
                     }
+
+                    //return RedirectToAction("Index", "Category", new { userId = user.Id });
+                    //}
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
@@ -100,10 +117,12 @@ namespace ToDo__List.Controllers
 
         public async Task<IActionResult> Logout()
         {
-            await signInManager.SignOutAsync();  // Perform logout logic
+            // Perform logout logic
+            await signInManager.SignOutAsync();  
 
-            return RedirectToAction("Index", "Home");  // Redirect to Home controller's index action
+            return RedirectToAction("LogIn", "Account");
         }
+
 
     }
 }

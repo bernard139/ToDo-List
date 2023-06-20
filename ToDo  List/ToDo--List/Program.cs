@@ -19,10 +19,6 @@ public class Program
         {
             options.Password.RequireNonAlphanumeric = false;
         }).AddEntityFrameworkStores<ApplicationDbContext>();
-        //builder.Services.ConfigureApplicationCookie(options =>
-        //{
-        //    options.LoginPath = "/Account/LogIn";
-        //});
 
 
         builder.Services.AddRazorPages().AddRazorRuntimeCompilation();

@@ -1,6 +1,9 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using ToDo__List.Migrations;
@@ -8,47 +11,33 @@ using ToDo__List.Models;
 
 namespace ToDo__List.Controllers
 {
+    [Authorize]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public class CategoryController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _context;
-
-        public CategoryController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        
+        public CategoryController(ApplicationDbContext context, 
+            UserManager<IdentityUser> userManager)
         {
             _context = context;
-            _userManager = userManager; 
+            _userManager = userManager;
         }
 
         // GET: Category
-
-        public async Task<IActionResult> Index(string userId)
+        public async Task<IActionResult> Index(string encryptedUserId, string salt)
         {
-            //return _context.Categories != null ? 
-            //            View(await _context.Categories.ToListAsync()) :
-            //            Problem("Entity set 'ApplicationDbContext.Categories'  is null.");
-            var categories = await _context.Categories.Where(c => c.UserId == userId).ToListAsync();
+            // Decrypt the user ID
+            string userId = QueryStringHelper.DecryptQueryStringParameter(encryptedUserId, salt);
+
+            var categories = await _context.Categories
+                .Where(c => c.UserId == userId)
+                .ToListAsync();
 
             return View(categories);
         }
-        
-        /*
-        // GET: Category/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Categories == null)
-            {
-                return NotFound();
-            }
 
-            var category = await _context.Categories
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (category == null)
-            {
-                return NotFound();
-            }
-
-            return View(category);
-        } */
 
 
         // GET: Category/Create
@@ -64,10 +53,13 @@ namespace ToDo__List.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Category category, string userId)
+        public async Task<IActionResult> Create(Category category, string encryptedUserId, string salt)
         {
             if (ModelState.IsValid)
             {
+                // Decrypt the user ID
+                string userId = QueryStringHelper.DecryptQueryStringParameter(encryptedUserId, salt);
+
                 // Assign the user ID to the category
                 category.UserId = userId;
 
@@ -106,7 +98,7 @@ namespace ToDo__List.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Category category, string userId)
+        public async Task<IActionResult> Edit(int id, Category category, string encryptedUserId, string salt)
         {
             if (id != category.ID)
             {
@@ -131,6 +123,9 @@ namespace ToDo__List.Controllers
                         throw;
                     }
                 }
+
+                // Decrypt the user ID
+                string userId = QueryStringHelper.DecryptQueryStringParameter(encryptedUserId, salt);
 
                 // Retrieve the updated list of tasks for the current user
                 var tasks = await _context.Categories.Where(c => c.UserId == userId).ToListAsync();
@@ -165,7 +160,7 @@ namespace ToDo__List.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, string encryptedUserId, string salt)
         {
             if (_context.Categories == null)
             {
@@ -180,6 +175,9 @@ namespace ToDo__List.Controllers
 
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
+
+            // Decrypt the user ID
+            string userId = QueryStringHelper.DecryptQueryStringParameter(encryptedUserId, salt);
 
             return RedirectToAction(nameof(Index), new { userId = category.UserId });
 

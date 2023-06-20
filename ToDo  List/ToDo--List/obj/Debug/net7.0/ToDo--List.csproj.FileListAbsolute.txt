@@ -283,7 +283,6 @@ C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\
 C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\net7.0\refs\System.Text.Encoding.CodePages.dll
 C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\net7.0\refs\System.Text.Encoding.dll
 C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\net7.0\refs\System.Text.Encoding.Extensions.dll
-C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\net7.0\refs\System.Text.Encodings.Web.dll
 C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\net7.0\refs\System.Text.Json.dll
 C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\net7.0\refs\System.Text.RegularExpressions.dll
 C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\net7.0\refs\System.Threading.Channels.dll
@@ -607,3 +606,5 @@ C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\obj\Debug\
 C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\obj\Debug\net7.0\ToDo--List.pdb
 C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\obj\Debug\net7.0\ToDo--List.genruntimeconfig.cache
 C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\obj\Debug\net7.0\ref\ToDo--List.dll
+C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\net7.0\System.Text.Encodings.Web.dll
+C:\Users\User\source\repos\bernard139\ToDo-List\ToDo  List\ToDo--List\bin\Debug\net7.0\runtimes\browser\lib\net7.0\System.Text.Encodings.Web.dll
